@@ -1,0 +1,6 @@
+1,Pepsi 330ml,3.5
+2,Fanta 330ml,3.3
+3,Mountain Dew 500ml,4.9
+4,Tymbark 500ml,3.2
+5,Woda 500ml,2.1
+6,Woda gazowana 500ml,2.2

@@ -1,0 +1,4 @@
+Dnia: 2024-05-31 kupiono: Mountain Dew 500ml
+Dnia: 2024-05-31 kupiono: Woda gazowana 500ml
+Dnia: 2024-06-01 kupiono: Pepsi 330ml
+Dnia: 2024-06-10 kupiono: Fanta 330ml
