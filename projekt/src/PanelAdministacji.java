@@ -41,7 +41,7 @@ public class PanelAdministacji extends JFrame{
     public PanelAdministacji(){
         super("Panel Administracji");
         this.setContentPane(this.secondaryPanel);
-        this.setSize(500, 500);
+        this.setSize(550, 500);
 //        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dodajPanel.setVisible(false);
         usunPanel.setVisible(false);
@@ -66,6 +66,7 @@ public class PanelAdministacji extends JFrame{
         dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                lblUruchomPonownie.setText("");
                 dodajPanel.setVisible(true);
                 operacjePanel.setVisible(false);
             }
@@ -82,11 +83,21 @@ public class PanelAdministacji extends JFrame{
         });
 
         zapiszButton.addActionListener(new ActionListener() {
+            boolean found = false;
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    crud.addProduct(products, new Produkt(Integer.parseInt(dodajNumer.getText()), dodajOpis.getText(), Double.parseDouble(dodajCena.getText())));
-                    lblUruchomPonownie.setText("Aby zobaczyć zmiany, uruchom program ponownie");
+                    for (Produkt product : products) {
+                        if(product.wyswietlId() == Integer.parseInt(dodajNumer.getText())) {
+                            lblUruchomPonownie.setText("Podany numer juz istnieje, uruchom program ponownie");
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found) {
+                        crud.addProduct(products, new Produkt(Integer.parseInt(dodajNumer.getText()), dodajOpis.getText(), Double.parseDouble(dodajCena.getText())));
+                        lblUruchomPonownie.setText("Aby zobaczyć zmiany, uruchom program ponownie");
+                    }
                 } catch (Exception a) {
                     lblUruchomPonownie.setText("Podano błedne dane");
                 }

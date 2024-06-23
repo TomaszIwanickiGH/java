@@ -30,7 +30,7 @@ public class MainApp extends JFrame {
         super("Automat z napojami");
         this.setContentPane(this.mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(500, 500);
+        this.setSize(550, 500);
 
         Kwota kwota = new Kwota();
         lblSrodki.setText("Posiadana kwota: " + kwota.getPosiadanaKwota() + "zł");
